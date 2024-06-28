@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link href="./task2.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>ANIKA SHARMA</h1>
+        <p>
+          Pre -final year student <br />B.tech, NIT HAMIRPUR <br />
+          Web Developer
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="about">
+        <h2>About Me</h2>
+        <div class="profile"></div>
+        <p>
+          I'm a passionate web developer with experience in creating responsive
+          and user-friendly websites including full stack web development and
+          want to use this domain for a bigger and greater cause! .
+        </p>
+      </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>React</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Back-end web development</li>
+        </ul>
+      </section>
+
+      <section class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-info">
+              <h3>AAJIVIKA</h3>
+              <p>
+                Its a software cum hardware project which focuses on solving a
+                bigger social cause and that is the workers in the unorganised
+                sector of our society. It provides a website which provides a
+                platform for workers to get employment and employers to post
+                required amount of jobs.
+              </p>
+              <ul class="project-tech">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Firebase</li>
+                <li>Maps API</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/anika253/AAJIVIKA.final" class="btn"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-info">
+              <h3>Amazon Clone</h3>
+              <p>
+                Freshly created frontend project covering main functionalities
+                created basically using web front-end technologies like
+                react-context-api's. The project incorporates within itself the
+                main features also seen in the main website of the company .
+              </p>
+              <ul class="project-tech">
+                <li>React</li>
+                <li>React-context API</li>
+                <li>JavaScript</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/anika253/AMAZONCLONE" class="btn"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Add more project cards as needed -->
+        </div>
+      </section>
+
+      <section class="resume">
+        <h2>Resume</h2>
+        <p>
+          Feel free to take a look on my resume to connect !
+          <a href="./Anika.resume.pdf" target="_blank">RESUME </a>.
+        </p>
+      </section>
+
+      <section class="contact">
+        <h2>Feel free to contact and exchange our thoughts!</h2>
+        <p>Email: anikasharma253@gmail .com</p>
+        <p>Phone: +91 2345678900</p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Anika Sharma . All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animate sections on scroll
+      gsap.utils
+        .toArray(".about, .skills, .projects, .resume, .contact")
+        .forEach((section, i) => {
+          gsap.from(section, {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+          });
+        });
+
+      // Animate skill items
+      gsap.utils.toArray(".skills ul li").forEach((item, i) => {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: "top 90%",
+          },
+          scale: 0,
+          opacity: 0,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+          delay: i * 0.1,
+        });
+      });
+
+      // Animate project cards
+      gsap.utils.toArray(".project-card").forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+          },
+          y: 100,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: i * 0.2,
+        });
+      });
+
+      // Parallax effect for profile image
+      gsap.to(".profile", {
+        scrollTrigger: {
+          trigger: ".about",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+        y: 100,
+      });
+
+      // Random color change for skill items
+      const colors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FFA07A", "#98D8C8"];
+      document.querySelectorAll(".skills ul li").forEach((item) => {
+        item.addEventListener("mouseover", () => {
+          item.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+        });
+        item.addEventListener("mouseout", () => {
+          item.style.backgroundColor = "";
+        });
+      });
+
+      // Typing effect for header
+      const headerText = document.querySelector("header h1");
+      const text = headerText.textContent;
+      headerText.textContent = "";
+      for (let i = 0; i < text.length; i++) {
+        setTimeout(() => {
+          headerText.textContent += text[i];
+        }, i * 100);
+      }
+    </script>
+  </body>
+</html>

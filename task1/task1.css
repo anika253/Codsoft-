@@ -1,0 +1,144 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+header {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  text-align: center;
+  padding: 2em 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  padding: 20px 15px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #6e8efb;
+  transform: translateY(-3px);
+}
+
+.container {
+  width: 80%;
+  margin: 2em auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  padding: 2em;
+}
+
+.column h2 {
+  color: #6e8efb;
+  margin-top: 0;
+}
+
+.column ul {
+  padding-left: 20px;
+}
+
+.gallery {
+  display: flex;
+  margin-bottom: 100px; /* Reduced to account for footer */
+  background-color: white;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2em 0;
+}
+
+.gallery div {
+  height: 400px;
+  width: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery div:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.first {
+  background-image: url("web.jpg");
+}
+
+.second {
+  background-image: url("brand.jpg");
+}
+
+.third {
+  background-image: url("e-commrce.jpg");
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+  .container {
+    width: 95%;
+  }
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gallery div {
+    margin-bottom: 2em;
+  }
+}
